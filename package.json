@@ -1,0 +1,22 @@
+{
+  "name": "backbone-handle",
+  "version": "0.1.0",
+  "description": "Put down your jquery selectors and get a handle on your views' DOM elements.",
+  "main": "backbone.handle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rotundasoftware/backbone.handle.git"
+  },
+  "keywords": [
+    "backbone",
+    "modui"
+  ],
+  "author": "Rotunda Software",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rotundasoftware/backbone.handle/issues"
+  }
+}
