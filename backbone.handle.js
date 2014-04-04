@@ -52,7 +52,7 @@ var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 					if( assertOneAndOnlyOne ) selector = selector.slice( 0, selector.length - 1 );
 					_this.ui[ key ] = _this.$( selector );
 					if( assertOneAndOnlyOne ) {
-						if( that.ui[ key ].length !== 1 )
+						if( _this.ui[ key ].length !== 1 )
 							throw new Error( "Expected selector \"" + selector + "\" to match 1 element, but " + _this.ui[ key ].length + " found." );
 						_this.uiBindings[ key ] = selector;
 					}
