@@ -8,7 +8,18 @@ var delegateEventSplitter = /^(\S+)\s*(.*)$/;
  * http://github.com/rotundasoftware/backbone.handle
  */
 
-(function( Backbone, _ ) {
+( function( root, factory ) {
+	if ( typeof define === 'function' && define.amd ) {
+		// AMD
+		define([ 'backbone', 'underscore' ], factory );
+	} else if (typeof exports === 'object') {
+		// Node
+		module.exports = factory( require( 'backbone' ), require( 'underscore' ) );
+	} else {
+		// Browser globals
+		root.returnExports = factory( root.Backbone, root._ );
+	}
+} ( this, function( Backbone, _ ) {
 	Backbone.Handle = {};
 
 	Backbone.Handle.add = function( view ) {
@@ -86,4 +97,7 @@ var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 			return newEvents;
 		};
 	};
-} )( Backbone, _ );
+
+	return Backbone.Handle;
+
+} ) );
