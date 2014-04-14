@@ -32,5 +32,3 @@ MyView = Backbone.View.extend( {
 ## Notes
 
 Inspired directly by the `ui` hash in Derick Baily's Backbone.Marionette. You may use this mixin in conjunction with Backbone.Marionette, and enjoy the extra bells and whistles.
-
-If you use Backbone.Courier in conjunction with this mixin, handles in Courier's `spawnMessages` hash will also be resolved.
