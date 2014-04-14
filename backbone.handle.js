@@ -1,7 +1,7 @@
 var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 
 /*
- * Backbone.Alias, v0.1
+ * Backbone.Handle, v0.1
  * Copyright (c)2014 Rotunda Software, LLC.
  * Parts adapted from Backbone.Marionette, Copyright (c)2014 Derick Bailey, Muted Solutions, LLC.
  * Distributed under MIT license
@@ -9,17 +9,18 @@ var delegateEventSplitter = /^(\S+)\s*(.*)$/;
  */
 
 ( function( root, factory ) {
+	// UMD wrapper.
 	if ( typeof define === 'function' && define.amd ) {
 		// AMD
-		define([ 'backbone', 'underscore' ], factory );
-	} else if (typeof exports === 'object') {
-		// Node
-		module.exports = factory( require( 'backbone' ), require( 'underscore' ) );
+		define( [ 'underscore', 'backbone', 'jquery' ], factory );
+	} else if ( typeof exports !== 'undefined' ) {
+		// Node/CommonJS
+		module.exports = factory( require('underscore' ), require( 'backbone' ), require( 'backbone' ).$ );
 	} else {
 		// Browser globals
-		root.returnExports = factory( root.Backbone, root._ );
+		factory( root._, root.Backbone, ( root.jQuery || root.Zepto || root.$ ) );
 	}
-} ( this, function( Backbone, _ ) {
+}( this, function( _, Backbone, $ ) {
 	Backbone.Handle = {};
 
 	Backbone.Handle.add = function( view ) {
@@ -99,5 +100,4 @@ var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 	};
 
 	return Backbone.Handle;
-
 } ) );
