@@ -1,6 +1,6 @@
 {
   "name": "backbone-handle",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Put down your jquery selectors and get a handle on your views' DOM elements.",
   "main": "backbone.handle.js",
   "scripts": {

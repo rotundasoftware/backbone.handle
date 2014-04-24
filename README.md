@@ -18,11 +18,15 @@ MyView = Backbone.View.extend( {
 	},
 
 	initialize : function() {
-		Backbone.Handle.add( this ); // Add backbone.handle functionality to this view.
+		Backbone.Handle.add( this ); // dd backbone.handle functionality to this view.
+	},
+
+	render : function() {
+		this.resolveHandles(); // resolve the selectors in the ui hash to actual jquery objects 
 	},
 
 	_okButton_onClick : function() {
-		console.log( this.ui.inputFld.val() ); // after render, elements are available in this.ui
+		console.log( this.ui.inputFld.val() ); // after resolveHandles() is called, elements are available in this.ui
 	},
 
 	...
@@ -31,4 +35,4 @@ MyView = Backbone.View.extend( {
 
 ## Notes
 
-Inspired directly by the `ui` hash in Derick Baily's Backbone.Marionette. You may use this mixin in conjunction with Backbone.Marionette, and enjoy the extra bells and whistles.
+Inspired directly by the `ui` hash in Derick Baily's Backbone.Marionette. You may use this mixin in conjunction with Backbone.Marionette, and enjoy the extra `!` selector modifier to asset that there is exactly one element.

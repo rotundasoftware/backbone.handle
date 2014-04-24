@@ -25,20 +25,16 @@ var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 
 	Backbone.Handle.add = function( view ) {
 		var overriddenViewMethods = {
-			render: view.render,
 			delegateEvents : view.delegateEvents
 		};
 
-		view.render = function() {
+		view.resolveHandles = function() {
 			var _this = this;
-			var args = Array.prototype.slice.call( arguments );
-
-			var returnValue = overriddenViewMethods.render.apply( this, args );
 
 			if( this.ui ) {
 				if( ! this.uiBindings ) {
-					// We want to store the ui hash in uiBindings, since afterwards the values 
-					// in the ui hash will be overridden with jQuery selectors.
+					// We want to store a copy of the ui hash in uiBindings, since afterwards the values 
+					// in the ui hash will be overridden with jQuery selectors, and we may need then again.
 					this.uiBindings = _.result( this, "ui" );
 				}
 
@@ -59,8 +55,6 @@ var delegateEventSplitter = /^(\S+)\s*(.*)$/;
 					}
 				} );
 			}
-
-			return returnValue;
 		};
 
 		view.delegateEvents = function( events ) {
