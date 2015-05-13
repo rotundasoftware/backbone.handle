@@ -35,4 +35,4 @@ MyView = Backbone.View.extend( {
 
 ## Notes
 
-Inspired directly by the `ui` hash in Derick Baily's Backbone.Marionette. You may use this mixin in conjunction with Backbone.Marionette, and enjoy the extra `!` selector modifier to asset that there is exactly one element.
+Inspired directly by the `ui` hash in Derick Baily's Backbone.Marionette. You may use this mixin in conjunction with Backbone.Marionette, and enjoy the extra `!` modifier to assert that there is exactly one element.
