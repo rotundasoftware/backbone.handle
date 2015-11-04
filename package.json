@@ -20,7 +20,7 @@
     "url": "https://github.com/rotundasoftware/backbone.handle/issues"
   },
   "dependencies": {
-    "backbone": "^1.1.2",
+    "backbone": "^1.2.3",
     "underscore": "^1.6.0"
   }
 }
